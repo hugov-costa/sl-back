@@ -1,0 +1,14 @@
+includes:
+    - ./vendor/larastan/larastan/extension.neon
+
+parameters:
+    level: max
+    paths:
+        - app
+        - routes
+
+    reportUnmatchedIgnoredErrors: false
+
+    ignoreErrors:
+        - identifier: missingType.generics
+        - '#Call to an undefined method Illuminate\\Database\\Eloquent\\Model::revoke#'
