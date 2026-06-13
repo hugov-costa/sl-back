@@ -22,6 +22,16 @@ class BaseResponse
         ], $statusCode);
     }
 
+    public function forbidden(): JsonResponse
+    {
+        return response()->json([
+            'detail' => 'You do not have permission to perform this action.',
+            'status' => 403,
+            'title' => 'Forbidden',
+            'type' => 'https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/403',
+        ], 403);
+    }
+
     public function index(Collection $data): JsonResponse
     {
         return response()->json([
