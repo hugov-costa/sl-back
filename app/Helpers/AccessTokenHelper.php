@@ -8,8 +8,13 @@ class AccessTokenHelper
 {
     public static function destroyHttpOnlySecureCookie(): Cookie
     {
+        /** @var string|null */
         $domain = config('session.domain');
+
+        /** @var bool|null */
         $secure = config('session.secure', true);
+
+        /** @var string|null */
         $sameSite = config('session.same_site', 'lax');
 
         return cookie(
@@ -37,8 +42,13 @@ class AccessTokenHelper
 
         $minutes = intval($minutes);
 
+        /** @var string|null */
         $domain = config('session.domain');
+
+        /** @var bool|null */
         $secure = config('session.secure', true);
+
+        /** @var string|null */
         $sameSite = config('session.same_site', 'lax');
 
         return cookie(

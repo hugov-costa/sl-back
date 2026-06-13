@@ -8,6 +8,7 @@ use App\Responses\AuthResponse;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Sanctum\PersonalAccessToken;
 
 class AuthService
 {
@@ -54,7 +55,7 @@ class AuthService
             return $this->response->unauthorized();
         }
 
-        /** @var \Laravel\Sanctum\PersonalAccessToken|null $token */
+        /** @var PersonalAccessToken|null $token */
         $token = $user->currentAccessToken();
 
         if ($token) {

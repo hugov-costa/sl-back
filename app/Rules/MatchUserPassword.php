@@ -20,13 +20,23 @@ class MatchUserPassword implements ValidationRule
     /**
      * Run the validation rule.
      *
-     * @param  \Closure(string): PotentiallyTranslatedString  $fail
+     * @param  Closure(string): PotentiallyTranslatedString  $fail
      */
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        $isValidPassword = $this->user && is_string($value) && is_string($this->user->password) && Hash::check($value, $this->user->password);
+        if (! is_string($value)) {
+            $fail(__('auth.failed'));
 
-        if (! $isValidPassword) {
+            return;
+        }
+
+        if (! $this->user) {
+            $fail(__('auth.failed'));
+
+            return;
+        }
+
+        if (! Hash::check($value, $this->user->password)) {
             $fail(__('auth.failed'));
         }
     }

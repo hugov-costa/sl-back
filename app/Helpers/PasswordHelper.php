@@ -2,8 +2,6 @@
 
 namespace App\Helpers;
 
-use Illuminate\Validation\Rules\Password as PasswordRule;
-
 class PasswordHelper
 {
     /**

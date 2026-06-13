@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Responses\AuthResponse;
 use App\Services\AuthService;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -22,7 +23,7 @@ class AuthController
     {
         try {
             return $this->service->checkAuth($request);
-        } catch (\Illuminate\Auth\AuthenticationException $e) {
+        } catch (AuthenticationException $e) {
             return $this->response->unauthorized();
         } catch (\Exception $e) {
             return $this->response->unexpectedError($e->getMessage());
@@ -38,7 +39,7 @@ class AuthController
     {
         try {
             return $this->service->login($request);
-        } catch (\Illuminate\Auth\AuthenticationException $e) {
+        } catch (AuthenticationException $e) {
             return $this->response->unauthorized();
         } catch (\Exception $e) {
             return $this->response->unexpectedError($e->getMessage());
@@ -52,7 +53,7 @@ class AuthController
     {
         try {
             return $this->service->logout($request);
-        } catch (\Illuminate\Auth\AuthenticationException $e) {
+        } catch (AuthenticationException $e) {
             return $this->response->unauthorized();
         } catch (\Exception $e) {
             return $this->response->unexpectedError($e->getMessage());

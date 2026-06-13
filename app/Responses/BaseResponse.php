@@ -11,7 +11,7 @@ class BaseResponse
     public function destroy(): JsonResponse
     {
         return response()->json([
-            'data' => "Resource successfully deleted.",
+            'data' => 'Resource successfully deleted.',
         ], 200);
     }
 
@@ -32,7 +32,7 @@ class BaseResponse
     public function notFound(): JsonResponse
     {
         return response()->json([
-            'detail' => "Resource not found.",
+            'detail' => 'Resource not found.',
             'status' => 404,
             'title' => 'Not Found',
             'type' => 'https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/404',
@@ -49,7 +49,7 @@ class BaseResponse
     public function store(): JsonResponse
     {
         return response()->json([
-            'message' => "Resource successfully created.",
+            'message' => 'Resource successfully created.',
         ], 201);
     }
 
@@ -66,7 +66,7 @@ class BaseResponse
     public function update(): JsonResponse
     {
         return response()->json([
-            'message' => "Resource successfully updated.",
+            'message' => 'Resource successfully updated.',
         ], 200);
     }
 }
