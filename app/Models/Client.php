@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Policies\ProductPolicy;
+use App\Policies\ClientPolicy;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\UsePolicy;
 use Illuminate\Database\Eloquent\Model;
@@ -10,15 +10,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 #[Fillable([
     'user_id',
-    'barcode',
+    'address',
     'code',
-    'description',
-    'gross_weight',
-    'net_weight',
-    'price',
+    'document_number',
+    'name',
+    'trade_name',
 ])]
-#[UsePolicy(ProductPolicy::class)]
-class Product extends Model
+#[UsePolicy(ClientPolicy::class)]
+class Client extends Model
 {
     /**
      * Get the attributes that should be cast.
@@ -29,12 +28,11 @@ class Product extends Model
     {
         return [
             'user_id' => 'integer',
-            'barcode' => 'string',
+            'address' => 'string',
             'code' => 'integer',
-            'description' => 'string',
-            'gross_weight' => 'integer',
-            'net_weight' => 'integer',
-            'price' => 'integer',
+            'document_number' => 'string',
+            'name' => 'string',
+            'trade_name' => 'string',
             'created_at' => 'datetime:Y-m-d H:i:s',
             'updated_at' => 'datetime:Y-m-d H:i:s',
         ];
