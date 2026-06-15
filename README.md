@@ -1,6 +1,6 @@
 # Teste técnico - Backend
 
-Backend Laravel para o sistema construído para o teste técnico.
+Backend Laravel do sistema construído para o teste técnico.
 
 ## Setup
 
